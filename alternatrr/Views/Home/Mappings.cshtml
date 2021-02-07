@@ -1,0 +1,58 @@
+﻿@model MappingsViewModel
+
+@{
+    ViewData["Title"] = $"{Model.Series.Title} mappings";
+    ViewData["Message"] = "All mappings for this series";
+}
+
+<div class="row">
+    @if (Model.SceneMappings.Count == 0)
+    {
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                There is no mapping for this how, but you can <a class="btn btn-sm btn-primary" asp-action="AddMapping" asp-route-id="@Model.Series.Id" role="button">add one</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-12">
+            <a class="btn btn-primary btn-sm" asp-action="AddMapping" asp-controller="Home" asp-route-id="@Model.Series.Id">Add new mapping</a>
+
+            <table class="table table-striped mt-3">
+                <thead>
+                    <tr>
+                        <td><b>Title</b></td>
+                        <td><b>SearchTerm</b></td>
+                        <td><b>ParseTerm</b></td>
+                        <td><b>Source</b></td>
+                        <td><b>Action</b></td>
+                    </tr>
+                </thead>
+                @foreach (var sceneMapping in Model.SceneMappings)
+                {
+                    <tr>
+                        <td>
+                            @sceneMapping.Title
+                        </td>
+                        <td>@sceneMapping.SearchTerm</td>
+                        <td>@sceneMapping.ParseTerm</td>
+                        <td>@sceneMapping.Type</td>
+                        <td>
+                            @if (sceneMapping.Type == "alternatrr")
+                            {
+                                <a class="btn btn-danger btn-sm" asp-action="DeleteMapping" asp-route-Id="@sceneMapping.Id">Delete</a>
+                            }
+                            else
+                            {
+                                <button class="btn btn-secondary btn-sm">Cannot delete</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <a class="btn btn-primary btn-sm" asp-action="AddMapping" asp-controller="Home" asp-route-id="@Model.Series.Id">Add new mapping</a>
+        </div>
+    }
+</div>

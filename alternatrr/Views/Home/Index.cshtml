@@ -1,0 +1,46 @@
+﻿@model IndexViewModel
+
+
+@{
+    ViewData["Title"] = "Series";
+    ViewData["Message"] = "A list of all your shows";
+}
+
+<div class="row">
+    @if (Model.Series.Count == 0)
+    {
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                #FeelsBadMan You currently have exactly 0 lists. I am pretty sure you want to create a new <a class="btn btn-primary" asp-action="MovieList" role="button">movie list</a> or a new <a class="btn btn-xs btn-primary" asp-action="ShowList" role="button">show list</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td><b>Title</b></td>
+                        <td><b>TVDb Id</b></td>
+                        <td><b>TVRage Id</b></td>
+                        <td><b>TVMaze Id</b></td>
+                    </tr>
+                </thead>
+                @foreach (var series in Model.Series)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="Mappings" asp-controller="Home" asp-route-id="@series.Id">
+                                @series.Title
+                            </a>
+                        </td>
+                        <td>@series.TvdbId</td>
+                        <td>@series.TvRageId</td>
+                        <td>@series.TvMazeId</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>
