@@ -11,7 +11,7 @@ services:
     image: theultimatecoder/alternatrr:latest
     environment:
     - ConnectionStrings__DefaultConnection=Data Source=/opt/alternatrr/app/alternatrr.db
-    - ConnectionStrings__sonarr=Data Source=/opt/sonarr/app/sonarr.db
+    - ConnectionStrings__sonarr=Data Source=/opt/sonarr/sonarr.db
     - Login__Username=Test
     - Login__Password=ChangeMe321!
     # Needed for reverseproxy
@@ -20,6 +20,6 @@ services:
     - LETSENCRYPT_HOST=alternatrr.YOURDOMAIN.COM
     - LETSENCRYPT_EMAIL=YOUREMAILADDRESS
     volumes:
-    - /opt/sonarr/app:/opt/sonarr/app  #Mounting the directory with sonarr.db in it
+    - /opt/sonarr:/opt/sonarr  #Mounting the directory with sonarr.db in it
     - /opt/alternatrr/app:/opt/alternatrr/app #Mounting the alternatrr.db peristent login
 ```
