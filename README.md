@@ -1,3 +1,5 @@
+# Does currently not work with sonarr v4
+
 # What alternatrr does
 alternatrr lets you add alternative titles to your sonarr instance by editing the sonarr.db file directly via a simple UI.
 
