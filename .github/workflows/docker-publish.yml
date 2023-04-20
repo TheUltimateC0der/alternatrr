@@ -34,7 +34,7 @@ jobs:
     
     - name: Build the Docker image
       if: github.event_name != 'pull_request'
-      run: docker build . --file listrr/Dockerfile -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LC }}:$(date +%s) -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LC }}:latest -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LC }}:${{ env.BRANCH }}
+      run: docker build . --file alternatrr/Dockerfile -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LC }}:$(date +%s) -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LC }}:latest -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME_LC }}:${{ env.BRANCH }}
            
     - name: Docker Login
       if: github.event_name != 'pull_request'
