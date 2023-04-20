@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-#nullable disable
+﻿#nullable disable
 
 namespace alternatrr
 {
@@ -41,6 +38,5 @@ namespace alternatrr
         public byte[] Added { get; set; }
         public string AddOptions { get; set; }
         public long TvMazeId { get; set; }
-        public long LanguageProfileId { get; set; }
     }
 }
