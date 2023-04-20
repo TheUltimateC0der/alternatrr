@@ -13,7 +13,7 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
   # github.ref as branch
-  BRANCH: ${{ github.ref.name }}
+  BRANCH: ${{ vars.ref.name }}
 
 
 jobs:
