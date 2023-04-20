@@ -8,7 +8,7 @@ alternatrr lets you add alternative titles to your sonarr instance by editing th
 version: '3'
 services:
   alternatrr:
-    image: theultimatecoder/alternatrr:latest
+    image: ghcr.io/theultimatecoder/alternatrr:latest
     environment:
     - ConnectionStrings__DefaultConnection=Data Source=/opt/alternatrr/app/alternatrr.db
     - ConnectionStrings__sonarr=Data Source=/opt/sonarr/sonarr.db
