@@ -28,7 +28,7 @@ jobs:
       
     - name: set lower case owner name
       run: |
-        echo "IMAGE_NAME_LC=${OWNER,,}" >>${GITHUB_ENV}
+        echo "IMAGE_NAME_LC=${IMAGE_NAME,,}" >>${GITHUB_ENV}
       env:
         IMAGE_NAME: ${{ github.repository }} 
     
